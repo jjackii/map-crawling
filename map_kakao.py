@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import itertools
 import time
 
 driver = webdriver.Chrome("./chromedriver")
@@ -32,10 +33,18 @@ def call(point):
     time.sleep(2)
 
     # 시간
-    via_time = driver.find_elements_by_css_selector("span.time")
+    goal_time = driver.find_elements_by_css_selector("span.time")
 
-    for t in via_time:
-        return t.text
+    for goal_time in goal_time:
+        return goal_time.text
     
 point = input("> ").split()
-call(point)
+
+result = list(itertools.permutations(point,len(point)))
+print("**경우의 수 : %s개" % len(result))
+   
+for i in result:
+    point = list(i)
+    print('-'.join(point), call(point))
+    
+driver.quit()   
