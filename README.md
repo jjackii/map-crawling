@@ -1,6 +1,6 @@
 # Pick-up project with Selenium and BS4
 - Crawling Naver, Kakao map for the shortest distance.
-- 김수연, 서지민
+- 김수연(Naver), 서지민(Kakao)
 
 Link: [Notion][notionlink]
 
